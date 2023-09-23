@@ -2,7 +2,12 @@ import { useAppSelector } from "../app/hooks";
 import { selectTable } from "../features/martingale/martingaleSlice";
 
 export default function Table() {
-  const table = useAppSelector(selectTable);
+  let table = useAppSelector(selectTable);
+  const redRow = table.find((row) => row.red);
+  if (!redRow) {
+    table = table.slice(0, 100);
+  }
+
   return (
     <table className="table mt-2">
       <thead>
