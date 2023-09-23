@@ -2,7 +2,7 @@ import { useAppSelector } from "../app/hooks";
 import { selectTable } from "../features/martingale/martingaleSlice";
 
 export default function Table() {
-  const table = useAppSelector(selectTable).slice(0, 50);
+  const table = useAppSelector(selectTable);
   return (
     <table className="table mt-2">
       <thead>

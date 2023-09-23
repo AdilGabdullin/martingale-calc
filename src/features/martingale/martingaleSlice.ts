@@ -127,8 +127,15 @@ export const selectTable = (state: RootState) => {
   let chanceOfLoosing = (100 - winningChance) / 100;
   let odds = 1 / chanceOfLoosing;
 
+  let redRowIndex = 100;
   const table = [];
-  for (let i = 1; i < 100; i++) {
+  for (let i = 1; i < 100 && i <= redRowIndex + 50; i++) {
+    const isRedRow =
+      totalBet < balance &&
+      totalBet + betAmount * (increaseOnLoss / 100 + 1) > balance;
+    if (isRedRow) {
+      redRowIndex = i;
+    }
     const row = {
       loss,
       betAmount,

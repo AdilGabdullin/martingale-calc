@@ -64,7 +64,7 @@ function InputGroup(props: {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
-    if (props.step === 0.00000001) {
+    if (props.name === "baseBet" && value.match(/e/)) {
       value = Number(value).toFixed(8);
     }
     dispatch(
