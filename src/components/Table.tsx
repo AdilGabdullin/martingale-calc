@@ -55,7 +55,7 @@ function oddsFormatter(odds: number): string {
   const million = 1_000_000;
   const billion = 1000 * million;
   const trillion = 1000 * billion;
-  const quadrilion = 1000 * trillion;
+  const quadrillion = 1000 * trillion;
 
   if (odds < million) {
     return "1:" + odds.toFixed(4);
@@ -63,9 +63,9 @@ function oddsFormatter(odds: number): string {
     return "1:" + (odds / million).toFixed(2) + "M";
   } else if (odds < trillion) {
     return "1:" + (odds / billion).toFixed(2) + "B";
-  } else if (odds < quadrilion) {
+  } else if (odds < quadrillion) {
     return "1:" + (odds / trillion).toFixed(2) + "T";
   } else {
-    return "1:" + (odds / quadrilion).toFixed(2) + "Q";
+    return "1:" + (odds / quadrillion).toFixed(2) + "Q";
   }
 }
